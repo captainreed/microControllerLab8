@@ -17,3 +17,30 @@ void configInterupts(void)
 	NVIC_ClearingPending(TIM2_IRQn);// clear the pending flag every time the function is used
 	
 }
+
+void adcinit()
+{
+	RCC->CR |= RCC_CR_HSION;
+	while(RCC->CR & RCC_CR_HSIRDY == 0)
+	{
+		(void)0;
+	}
+	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN;
+	RCC->APB1ENR1 |= RCC_APB1ENR1_TIM4EN;
+	RCC->AHB2ENR |= RCC_AHB2ENR_ADCEN;
+	
+	GPIOA->MODER |= GPIO_MODER_MODE0_0;
+	GPIOA->MODER |= GPIO_MODER_MODE0_1;
+	GPIOA->PUPDR &= ~GPIO_PUPDR_PUPDR0_0;
+	GPIOA->PUPDR &= ~GPIO_PUPDR_PUPDR0_1;
+	GPIOA->ASCR  |= GPIO_ASCR_EN_0;
+	
+	ADC->CR &= ~ADC_CR_ADEN;
+	//continue to follow psuedocode on textbook page 498
+	//step 3
+}
+
+void readadc()
+{
+	return ADC_DR;
+}
