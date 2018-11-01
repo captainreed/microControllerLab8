@@ -1,5 +1,6 @@
 #include "PiezoBuzzer.h"
 #include "stm32l476xx.h"
+#include "waveGenerator.h"
 
 //new files:
 //readADC.c
@@ -9,32 +10,31 @@
 //interupt 1
 /*
 set the interupt to be triggered every 2 ms
-read the value every trigger period and store it into memory
+read the ADC
+store ADC value in array
 */
 
 //interupt 2
 /*
 configure to be triggered every 500 ms
-read the value from the ADC memory
+
+find average of ADC array
+adcValue = average of the array
 newFreq = math.floor(100 + 900*(adcValue/maxADCValue))
+clear the array
 call setFreq(newFreq)
 */
 
+//interupt 3
+/*
+set the new output value for the DAC
+*/
 
 
 int main(void){
 	
 	initBuzzer();
-//pseudo code****************
-/*
-configure a timer interrupt to trigger the ADC read function and write to memory
-in wavegenerator.c write an array with 40 entries that are samples from a sin wave
-
-configure another timer that triggers the setFreq() function in waveGenerator.c every 500ms
-the frequency can be between 100 and 1000HZ
-the setFreq(freq in HZ) function changes the time constant
-
-*/
+	configInterupts(void);
 
 	while(1)
 	{
