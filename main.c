@@ -6,14 +6,20 @@
 //readADC.c
 //waveGenerator.c this is where the interrupts will be initiated
 
-
+void TIM2_IRQHandler()
+{
+	
+}
 //interupt 1
 /*
 set the interupt to be triggered every 2 ms
 read the ADC
 store ADC value in array
 */
-
+void TIM3_IRQHandler()
+{
+	
+}
 //interupt 2
 /*
 configure to be triggered every 500 ms
@@ -25,6 +31,10 @@ clear the array
 call setFreq(newFreq)
 */
 
+void TIM4_IRQHandler()
+{
+	
+}
 //interupt 3
 /*
 set the new output value for the DAC
