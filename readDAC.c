@@ -22,7 +22,12 @@ void DACinit()
   //end pin init
   //this block is the timer 4 init
   RCC->APB1ENR1 |= RCC_APB1ENR1_TIM4EN;
-  
+  TIM4->CR1 &= ~TIM_CR1_DIR;//up counting
+  TIM4->PSC = 3999;
+  TIM4->ARR = 999;
+  TIM4->CCR1 = 998;
+  //set the CC1S in the CCMR1 to output if it is not already so (reset value should have it as output already)
+  TIM4->DIER |= TIM_DIER_TIE;
   //end timer init
   //enable the DAC
   DAC->CR |= DAC_CR_EN2;
@@ -30,5 +35,9 @@ void DACinit()
 
 void readDAC()
 {
-
-}
+  //DAC->CR &= ~DAC_CR_EN2;
+  //deactivate timer
+  TIM4->CR1 &= ~TIM_CR_CEN;
+  TIM4->ARR = ?????;//not sure where to grab this value from or if it is given
+  TIM4->CR1 |= TIM_CR_CEN;
+ }
