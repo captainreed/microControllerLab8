@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-void adcinit();
-void readadc();
+void DACinit();
+void readDAC();
 
 #endif
