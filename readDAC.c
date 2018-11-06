@@ -13,15 +13,19 @@ void DACinit()
   DAC->CR |= DAC_CR_TEN2; //enable trigger for channel 2
   DAC->CR &= ~( DAC_CR_TSEL2_0 | DAC_CR_TSEL2_1 | DAC_CR_TSEL2_2);// clear trigger selection
   DAC->CR |= DAC_CR_TSEL2_0;
-  DAC->CR |= DAC_CR_TSEL2_1; // select TIM5_TRGO
-  DAC->CR |= DAC_CR_EN2;
-  
-  RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN;//enable port A clock
+  DAC->CR |= DAC_CR_TSEL2_2; // select TIM4_TRGO
+  // init pin A5 might not need the pin but just in case
+  //RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN;//enable port A clock
   //set to analog mode pin A5
-  GPIOA-> MODER |= GPIO_MODER_MODER5_0;
-  GPIOA-> MODER |= GPIO_MODER_MODER5_1;
+  //GPIOA-> MODER |= GPIO_MODER_MODER5_0;
+  //GPIOA-> MODER |= GPIO_MODER_MODER5_1;
+  //end pin init
+  //this block is the timer 4 init
+  RCC->APB1ENR1 |= RCC_APB1ENR1_TIM4EN;
   
-  
+  //end timer init
+  //enable the DAC
+  DAC->CR |= DAC_CR_EN2;
 }
 
 void readDAC()
