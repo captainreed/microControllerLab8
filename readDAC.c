@@ -1,4 +1,6 @@
 #include "readDAC.h"
+#include "stm32l476xx.h"
+
 
 void DACinit()
 {
@@ -36,8 +38,8 @@ void DACinit()
 void readDAC()
 {
   //DAC->CR &= ~DAC_CR_EN2;
-  //deactivate timer
-  TIM4->CR1 &= ~TIM_CR_CEN;
-  TIM4->ARR = ?????;//not sure where to grab this value from or if it is given
-  TIM4->CR1 |= TIM_CR_CEN;
+//  //deactivate timer
+//  TIM4->CR1 &= ~TIM_CR_CEN;
+//  TIM4->ARR = ?????;//not sure where to grab this value from or if it is given
+//  TIM4->CR1 |= TIM_CR_CEN;
  }

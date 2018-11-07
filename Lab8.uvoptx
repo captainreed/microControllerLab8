@@ -182,7 +182,7 @@
       <DebugFlag>
         <trace>0</trace>
         <periodic>1</periodic>
-        <aLwin>0</aLwin>
+        <aLwin>1</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
         <aSer2>0</aSer2>
@@ -297,24 +297,24 @@
     <File>
       <GroupNumber>1</GroupNumber>
       <FileNumber>6</FileNumber>
-      <FileType>1</FileType>
+      <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\readadc.c</PathWithFileName>
-      <FilenameWithoutPath>readadc.c</FilenameWithoutPath>
+      <PathWithFileName>.\stm32l476xx.h</PathWithFileName>
+      <FilenameWithoutPath>stm32l476xx.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
       <FileNumber>7</FileNumber>
-      <FileType>5</FileType>
+      <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\readadc.h</PathWithFileName>
-      <FilenameWithoutPath>readadc.h</FilenameWithoutPath>
+      <PathWithFileName>.\readDAC.c</PathWithFileName>
+      <FilenameWithoutPath>readDAC.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -325,8 +325,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\stm32l476xx.h</PathWithFileName>
-      <FilenameWithoutPath>stm32l476xx.h</FilenameWithoutPath>
+      <PathWithFileName>.\readDAC.h</PathWithFileName>
+      <FilenameWithoutPath>readDAC.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

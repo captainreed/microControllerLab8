@@ -9,12 +9,16 @@ void configInterupts(void)
 	
 	*/
 	NVIC_DisableIRQ(TIM2_IRQn);
-	NVIC_EnableIRQ(TIM2_IRQn);
 	NVIC_SetPriority(TIM2_IRQn, 1); // set the priority of the interrupt
+	TIM2->PSC = 39;
+	TIM2->ARR = 49999;
+	TIM2->RCR = 0;
+	TIM2->DIER |= TIM_DIER_UIE;
+
+	NVIC_EnableIRQ(TIM2_IRQn);
 	
 	//set the timer settings using the TIM_TypeDef specifically the TIM2, TIM3 and TIM4
 
-	NVIC_ClearingPending(TIM2_IRQn);// clear the pending flag every time the function is used
 	
 }
 
@@ -35,12 +39,13 @@ void adcinit()
 	GPIOA->PUPDR &= ~GPIO_PUPDR_PUPDR0_1;
 	GPIOA->ASCR  |= GPIO_ASCR_EN_0;
 	
-	ADC->CR &= ~ADC_CR_ADEN;
+	ADC1->CR &= ~ADC_CR_ADEN;
 	//continue to follow psuedocode on textbook page 498
 	//step 3
 }
 
 void readadc()
 {
-	return ADC_DR;
+	int x = 5;
+	//return ADC_DR;
 }
